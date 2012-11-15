@@ -1,4 +1,8 @@
 Revision history for Perl extension Benchmark::Featureset::StopwordLists.
 
+1.01  Mon Aug 20 12:50:00 2012
+	- Greatly expand the list of modules excluded.
+	- Clarify the reasons for inclusion/exclusion.
+
 1.00  Fri Aug 17 17:01:00 2012
 	- Original version

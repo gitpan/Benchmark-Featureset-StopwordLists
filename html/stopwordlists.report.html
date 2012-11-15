@@ -8,12 +8,12 @@
 
 <h3 class="global_toc_text">Purpose</h3>
 
-<p align="center">To report on a personal selection of modules which offer stop word lists.</p>
+<p align="center">To report on a personal selection of stand-alone modules which offer stop word lists.</p>
 
 <table align="center">
 <tr><td>Module names are read from data/module.list.ini, which is shipped with the distro.</td></tr>
 <tr><td>Each module's data has an indicator - 'include = Yes/No' - which makes it easy to edit & re-run.</td></tr>
-<tr><td>But, because each module has a different mechanism for returning the list of words, the names are also hard-coded in the source code.</td></tr>
+<tr><td>But, because each <strong>included</strong> module has a different mechanism for returning the list of words, their names are also hard-coded in the source code.</td></tr>
 <tr><td>Excluded modules are listed at the end of this report.</td></tr>
 </table>
 
@@ -46,7 +46,7 @@ Version
 <!-- Right -->
 <td>
 <div class="last_odd_right">
-1.00
+1.01
 </div>
 </td>
 </tr>
@@ -4108,8 +4108,149 @@ Version
 <h3 class="global_toc_text">Modules excluded</h3>
 
 <table align="center" border = "1" summary = "Names">
+<tr>
+<td>Name</td>
+<td>Package</td>
+<td>Notes</td>
+</tr>
+<tr>
+<td>1: AI::Categorizer::Document</td>
+<td><a href="https://metacpan.org/release/AI-Categorizer">AI::Categorizer</a></td>
+<td>Not stand-alone. User may provide a stopword list</td>
+</tr>
+<tr>
+<td>2: Blog::Spam::Plugin::stopwords</td>
+<td><a href="https://metacpan.org/release/Blog-Spam">Blog::Spam</a></td>
+<td>Not stand-alone. Uses hard-coded path to stopword file</td>
+</tr>
+<tr>
+<td>3: Combine::Matcher</td>
+<td><a href="https://metacpan.org/release/combine">combine</a></td>
+<td>Not stand-alone. User must provide the stopwords in an (apparently) undocumented fashion</td>
+</tr>
+<tr>
+<td>4: DBIx::FullTextSearch::StopList</td>
+<td><a href="https://metacpan.org/release/DBIx-FullTextSearch">DBIx::FullTextSearch</a></td>
+<td>Not stand-alone</td>
+</tr>
+<tr>
+<td>5: DBIx::TextIndex::StopList::cz</td>
+<td><a href="https://metacpan.org/release/DBIx-TextIndex">DBIx::TextIndex</a></td>
+<td>Czech-language stop words</td>
+</tr>
+<tr>
+<td>6: Elastic::Manual::Analysis</td>
+<td><a href="https://metacpan.org/release/Elastic-Model">Elastic::Model</a></td>
+<td>Not stand-alone. User may provide a stopword list</td>
+</tr>
+<tr>
+<td>7: HTML::Index::Store</td>
+<td><a href="https://metacpan.org/release/HTML-Index">HTML::Index</a></td>
+<td>Not stand-alone. User may provide a stopword list</td>
+</tr>
+<tr>
+<td>8: Image::WordCloud::StopWords::EN</td>
+<td><a href="https://metacpan.org/release/Image-WordCloud">Image::WordCloud</a></td>
+<td>Not stand-alone</td>
+</tr>
+<tr>
+<td>9: KinoSearch1::Analysis::Stopalizer</td>
+<td><a href="https://metacpan.org/release/KinoSearch1">KinoSearch1</a></td>
+<td>Not stand-alone</td>
+</tr>
+<tr>
+<td>10: KinoSearch::Analysis::Stopalizer</td>
+<td><a href="https://metacpan.org/release/KinoSearch">KinoSearch</a></td>
+<td>Not stand-alone</td>
+</tr>
+<tr>
+<td>11: Lucy::Analysis::SnowballStopFilter</td>
+<td><a href="https://metacpan.org/release/Lucy">Lucy</a></td>
+<td>Not stand-alone. Supports 13 languages</td>
+</tr>
+<tr>
+<td>12: Perl::Critic::Policy::Documentation::PodSpelling</td>
+<td><a href="https://metacpan.org/release/Perl-Critic">Perl::Critic</a></td>
+<td>Not stand-alone. Uses Pod::Spell</td>
+</tr>
+<tr>
+<td>13: Pod::Weaver::Plugin::StopWords</td>
+<td><a href="https://metacpan.org/release/Pod-Weaver">Pod::Weaver</a></td>
+<td>Not stand-alone. User may provide a stopword list</td>
+</tr>
+<tr>
+<td>14: Pod::Wordlist</td>
+<td><a href="https://metacpan.org/release/Pod-Spell">Pod::Spell</a></td>
+<td>Not stand-alone. Built-in stopword list is Perl-specific</td>
+</tr>
+<tr>
+<td>15: Search::Glimpse::Index</td>
+<td><a href="https://metacpan.org/release/Search-Glimpse">Search::Glimpse</a></td>
+<td>Not stand-alone. Also, requires a Glimpse server</td>
+</tr>
+<tr>
+<td>16: Search::Indexer::Incremental::MD5</td>
+<td><a href="https://metacpan.org/release/Search-Indexer-Incremental-MD5">Search::Indexer::Incremental::MD5</a></td>
+<td>Not stand-alone. User may provide a stopword list, or use a built-in Perl-specific list</td>
+</tr>
+<tr>
+<td>17: Search::Tokenizer</td>
+<td><a href="https://metacpan.org/release/Search-Tokenizer">Search::Tokenizer</a></td>
+<td>Has a option to accept the Lingua::StopWords list</td>
+</tr>
+<tr>
+<td>18: Search::Tools::QueryParser</td>
+<td><a href="https://metacpan.org/release/Search-Tools">Search::Tools</a></td>
+<td>Not stand-alone. Use may provide a stopword list</td>
+</tr>
+<tr>
+<td>19: Test::Spelling</td>
+<td><a href="https://metacpan.org/release/Test-Spelling">Test::Spelling</a></td>
+<td>Perl-specific words via Pod::Spell. User may add words</td>
+</tr>
+<tr>
+<td>20: Text::DeDuper</td>
+<td><a href="https://metacpan.org/release/Text-DeDuper">Text::DeDuper</a></td>
+<td>User may provide a stopword list</td>
+</tr>
+<tr>
+<td>21: Text::Language::Guess</td>
+<td><a href="https://metacpan.org/release/Text-Language-Guess">Text::Language::Guess</a></td>
+<td>Uses Lingua::Stopwords</td>
+</tr>
+<tr>
+<td>22: Text::Similarity::Overlaps</td>
+<td><a href="https://metacpan.org/release/Text-Similarity">Text::Similarity</a></td>
+<td>Not stand-alone. User must provide a stopword file</td>
+</tr>
+<tr>
+<td>23: UMLS::SenseRelate::TargetWord</td>
+<td><a href="https://metacpan.org/release/UMLS-SenseRelate">UMLS::SenseRelate</a></td>
+<td>Not stand-alone. Has option to disregard an (apparently) undocumented list of stopwords</td>
+</tr>
+<tr>
+<td>24: WAIT::Filter</td>
+<td><a href="https://metacpan.org/release/WAIT">WAIT</a></td>
+<td>Apparently contains a built-in list of freeWAIS-sf stopwords</td>
+</tr>
+<tr>
+<td>25: WordNet-Similarity</td>
+<td><a href="https://metacpan.org/release/WordNet-Similarity">WordNet-Similarity</a></td>
+<td>Not standalone. User may provide a stopword file</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Package</td>
+<td>Notes</td>
+</tr>
 </table>
 
+
+<table align="center">
+<tr><td>Modules are excluded if they are not stand-alone,</td></tr>
+<tr><td>or if they require the user to supply the stopword list.</td></tr>
+<tr><td>Lastly, modules are excluded if they use one of the other modules listed in this report.</td></tr>
+</table>
 
 <hr />
 
@@ -4140,7 +4281,7 @@ Date
 <!-- Right -->
 <td>
 <div class="odd_right">
-2012-08-17
+2012-08-20
 </div>
 </td>
 </tr>

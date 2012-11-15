@@ -21,7 +21,7 @@ use Text::Xslate 'mark_raw';
 fieldhash my %html_config   => 'html_config';
 fieldhash my %module_config => 'module_config';
 
-our $VERSION = '1.00';
+our $VERSION = '1.01';
 
 # ------------------------------------------------
 
@@ -53,7 +53,7 @@ sub _build_excluded_list
 	my($href);
 	my(@tr);
 
-	push @tr, [{td => 'Name'}, {td => 'Notes'}];
+	push @tr, [{td => 'Name'}, {td => 'Package'}, {td => 'Notes'}];
 
 	for my $module (sort keys %$module_config)
 	{
@@ -61,18 +61,19 @@ sub _build_excluded_list
 
 		$count++;
 
-		($href = $module) =~ s/::/-/g;
+		($href = $$module_config{$module}{package}) =~ s/::/-/g;
 
 		# mark_raw() is needed because notes contain the HTML tag <br />.
 
 		push @tr,
 		[
-			{td => mark_raw(qq|$count: <a href="https://metacpan.org/release/$href">$module</a>|)},
+			{td => mark_raw("$count: $module")},
+			{td => mark_raw(qq|<a href="https://metacpan.org/release/$href">$$module_config{$module}{package}</a>|)},
 			{td => mark_raw($$module_config{$module}{notes} || '')},
 		];
 	}
 
-	push @tr, [{td => 'Name'}, {td => 'Notes'}];
+	push @tr, [{td => 'Name'}, {td => 'Package'}, {td => 'Notes'}];
 
 	return [@tr];
 }
@@ -439,9 +440,9 @@ By searching MetaCPAN.org for phrases like 'stopword' and 'stop word'.
 The other modules in this series are L<Benchmark::Featureset::LocaleCountry> and
 L<Benchmark::FeatureSet::SetOps>.
 
-One set of module-comparative reviews, by Neil Bowers, is L<here|http://neilb.org/reviews/>.
+One set of module comparison reviews, by Neil Bowers, is L<here|http://neilb.org/reviews/>.
 
-And another set of module-comparative reviews, by Ron Savage, is L<here|http://savage.net.au/Module-reviews.html>.
+And another set of module comparison reviews, by Ron Savage, is L<here|http://savage.net.au/Module-reviews.html>.
 
 =head1 Machine-Readable Change Log
 
